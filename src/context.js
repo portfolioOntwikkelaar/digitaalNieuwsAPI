@@ -31,13 +31,18 @@ const AppProvider = ({ children }) => {
       dispatch({type:SET_STORIES, payload:{hits:data.hits,nbPages: data.nbPages},})
     } catch (error) {
       console.log(error);
-      
     }
+  }
+  const removeStory = (id) => {
+    dispatch({type:REMOVE_STORY,payload:id})
+  }
+  const handleSearch = (query) => {
+    dispatch({ type: HANDLE_SEARCH, payload: query})
   }
   useEffect(()=>{
     fetchStories(`${API_ENDPOINT}query=${state.query}&page=${state.page}`)
   },[])
-  return <AppContext.Provider value={{...state}}>{children}</AppContext.Provider>
+  return <AppContext.Provider value={{...state, removeStory, handleSearch}}>{children}</AppContext.Provider>
     
   }
 

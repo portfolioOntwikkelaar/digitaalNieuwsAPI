@@ -2,10 +2,12 @@ import React from 'react'
 import { useGlobalContext } from "./context";
 
 const SearchForm = () => {
+  const {query, handleSearch}= useGlobalContext();
   return (
-    <h1>
-      search form
-    </h1>
+    <form className="search-form" onSubmit={(e) => e.preventDefault()}>
+      <input type="text" className="form-input" value={query}/>
+      
+    </form>
   )
 }
 
