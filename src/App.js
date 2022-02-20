@@ -7,9 +7,11 @@ import Buttons from './Buttons'
 
 function App() {
   return (
-    <h2 >
-      Extrim React News
-    </h2>
+    < >
+      <SearchForm />
+      <Buttons />
+      <Stories />
+    </>
   );
 }
 
